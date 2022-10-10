@@ -156,7 +156,9 @@ namespace Microsoft.Spark.UnitTest
             using (var ms = new MemoryStream())
             {
                 var bf = new BinaryFormatter();
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 bf.Serialize(ms, udfData);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
                 return ms.ToArray();
             }
         }
@@ -166,7 +168,9 @@ namespace Microsoft.Spark.UnitTest
             using (var ms = new MemoryStream(serializedUdf, false))
             {
                 var bf = new BinaryFormatter();
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 UdfSerDe.UdfData udfData = (UdfSerDe.UdfData)bf.Deserialize(ms);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
                 return UdfSerDe.Deserialize(udfData);
             }
         }
